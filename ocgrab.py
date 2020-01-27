@@ -2,6 +2,9 @@ import requests as r
 import os
 import sys
 from platform import system
+from multiprocessing import Pool
+from multiprocessing.dummy import Pool as ThreadPool
+
 
 if system() == 'Linux':
 	os.system('clear')
@@ -22,12 +25,11 @@ def grab(url):
 
 def main():
     listsite = open(sys.argv[1], 'r').readlines()
-    for x in listsite:
-        try:
-            x = x.strip()
-            grab(x)
-        except:
-            pass
+    try:
+        ThreadPool = Pool(10)
+        ThreadPool.map(grab, listsite)
+    except:
+        pass
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
