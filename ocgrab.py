@@ -2,8 +2,7 @@ import requests as r
 import os
 import sys
 from platform import system
-from multiprocessing import Pool
-from multiprocessing.dummy import Pool as ThreadPool
+
 
 
 if system() == 'Linux':
