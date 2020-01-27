@@ -19,7 +19,7 @@ def grab(url):
         cek = r.get(url + '/admin/index.php', headers = head)
         if "common/login" in cek.text:
             print(url + " [OK]")
-            open('revip.txt', 'a').write(url + '\n')
+            open('ocg_result.txt', 'a').write(url + '\n')
         else:
             print(url + " [BAD]")
 
