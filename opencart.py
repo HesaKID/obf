@@ -61,7 +61,7 @@ def main():
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print G + banner
-        print "Usage : python " + sys.argv[0] + " list.txt"
+        print("Usage : python " + sys.argv[0] + " list.txt")
     else:
         print G + banner
         main()
