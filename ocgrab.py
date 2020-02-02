@@ -25,11 +25,12 @@ def grab(url):
 
 def main():
     listsite = open(sys.argv[1], 'r').readlines()
-    try:
-        ThreadPool = Pool(10)
-        ThreadPool.map(grab, listsite)
-    except:
-        pass
+    for x in listsite:
+        try:
+            x = x.strip()
+            grab(x)
+        except:
+            pass
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
