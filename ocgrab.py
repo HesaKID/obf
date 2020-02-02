@@ -16,7 +16,7 @@ def grab(url):
         url = "%s%s" % ('http://', url)
     url = url.strip()
     head = {'User-Agent' : 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:35.0) Gecko/20100101 Firefox/35.0'}
-    cek = r.get(url + '/admin/index.php', headers = head)
+    cek = r.get(url + '/admin/index.php', headers = head, timeout=7)
     if "common/login" in cek.text:
         print(url + " [OK]")
         open('ocg_result.txt', 'a').write(url + '\n')
